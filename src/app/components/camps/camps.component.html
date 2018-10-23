@@ -1,0 +1,19 @@
+<h1>Camps 3D</h1>
+<hr>
+<div class="card-columns">
+
+    <div class="card animated fadeIn fast" *ngFor="let camp of camps; let i = index">
+        <!-- <img class="card-img-top" src="{{ heroi.img }}" alt="{{ camp.nom }}"> -->
+        <div class="card-body">
+          <h5 class="card-title">{{ camp.nom }}</h5>
+          <p class="card-text">{{ camp.localitat }}</p>
+          <p class="card-text"><small class="text-muted">{{ camp.url }}</small></p>
+        
+        <button (click)="veureCamp(i)"
+         type="button" class="btn btn-outline-primary btn-block">Veure més</button>
+
+        <!-- <a [routerLink]="['/heroi', i]"  class="btn btn-outline-primary btn-block">Veure més</a> -->
+        </div>
+    </div>  
+
+</div>

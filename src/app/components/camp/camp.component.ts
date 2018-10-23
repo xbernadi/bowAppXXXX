@@ -1,0 +1,34 @@
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { CampsService } from '../../services/camps.services';
+import { HttpClient } from '@angular/common/http';
+
+
+@Component({
+  selector: 'app-camp',
+  templateUrl: './camp.component.html',
+  styles: []
+})
+export class CampComponent implements OnInit {
+
+  camp: any = {};
+  temperatura :any = 0;
+
+  constructor(  private activatedRoute: ActivatedRoute,
+                private _campService: CampsService,
+                private http: HttpClient ) {
+
+    this.activatedRoute.params.subscribe( params => {
+        this.camp = this._campService.getCamp(params['id']);
+      } );
+
+    this.http.get('http://api.openweathermap.org/data/2.5/weather?id=3111294&appid=5fd61e008a4523083c299f995652aa12&units=metric')
+        .subscribe ( temp => {
+          //console.log(temp);
+          //this.temperatura = temp.main.temp;
+        });
+   }
+
+  ngOnInit() {
+  }
+}
