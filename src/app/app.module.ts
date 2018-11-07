@@ -20,6 +20,7 @@ import { NewComponent } from './components/new/new.component';
 import { HomeComponent } from './components/home/home.component';
 import { CampsComponent } from './components/camps/camps.component';
 import { CampComponent } from './components/camp/camp.component';
+import { KeysPipe } from './pipes/keys.pipe';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { CampComponent } from './components/camp/camp.component';
     NewComponent,
     HomeComponent,
     CampsComponent,
-    CampComponent
+    CampComponent,
+    KeysPipe
   ],
   imports: [
     BrowserModule,

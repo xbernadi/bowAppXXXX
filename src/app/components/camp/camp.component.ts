@@ -11,24 +11,34 @@ import { HttpClient } from '@angular/common/http';
 })
 export class CampComponent implements OnInit {
 
-  camp: any = {};
-  temperatura :any = 0;
+  camps: any[] = [];
+  temperatura: any = 0;
+  id: string;
 
   constructor(  private activatedRoute: ActivatedRoute,
-                private _campService: CampsService,
+                private _campsService: CampsService,
                 private http: HttpClient ) {
 
-    this.activatedRoute.params.subscribe( params => {
-        this.camp = this._campService.getCamp(params['id']);
-      } );
+    this.activatedRoute.params
+        .subscribe ( parametros => {
+                    this.id = parametros['id'];
+    });
 
     this.http.get('http://api.openweathermap.org/data/2.5/weather?id=3111294&appid=5fd61e008a4523083c299f995652aa12&units=metric')
         .subscribe ( temp => {
-          //console.log(temp);
-          //this.temperatura = temp.main.temp;
+          // console.log(temp);
+          // this.temperatura = temp.main.temp;
         });
+
    }
 
-  ngOnInit() {
+   ngOnInit() {
+
+
+    this._campsService.getCamps(this.id)
+      .subscribe( data => {
+        console.log(data);
+        this.camps = data;
+      });
   }
 }

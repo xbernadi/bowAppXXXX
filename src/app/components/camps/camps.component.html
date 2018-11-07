@@ -2,12 +2,12 @@
 <hr>
 <div class="card-columns">
 
-    <div class="card animated fadeIn fast" *ngFor="let camp of camps; let i = index">
+    <div class="card animated fadeIn fast" *ngFor="let k of camps | keys; let i = index">
         <!-- <img class="card-img-top" src="{{ heroi.img }}" alt="{{ camp.nom }}"> -->
         <div class="card-body">
-          <h5 class="card-title">{{ camp.nom }}</h5>
-          <p class="card-text">{{ camp.localitat }}</p>
-          <p class="card-text"><small class="text-muted">{{ camp.url }}</small></p>
+          <h5 class="card-title">{{ camps[k].nom }}</h5>
+          <p class="card-text">{{ camps[k].localitat }}</p>
+          <p class="card-text"><small class="text-muted">{{ camps[k].url }}</small></p>
         
         <button (click)="veureCamp(i)"
          type="button" class="btn btn-outline-primary btn-block">Veure més</button>
