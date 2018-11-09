@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CampsService } from '../../services/camps.services';
 
 @Component({
   selector: 'app-new',
@@ -6,9 +9,30 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NewComponent implements OnInit {
 
-  constructor() { }
+  tirada: Object = {
+    camp: '',
+    arc: ''
+  };
+
+  camps: any;
+
+  constructor(  private _campsService: CampsService,
+                private router: Router,
+                private route: ActivatedRoute ) { }
 
   ngOnInit() {
+    this._campsService.getCamps()
+    .subscribe( data => {
+      this.camps = data;
+    });
   }
 
+  guardar (forma: NgForm) {
+    console.log (forma);
+    console.log (this.tirada);
+    // Grabar a la BBDD les dades de la tirada
+
+    // Redirigir a la següent pagina
+    this.router.navigate(['/formTirada']);
+  }
 }

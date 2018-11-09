@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 // Rutes
 import {APP_ROUTING} from './app.routes';
@@ -21,6 +22,7 @@ import { HomeComponent } from './components/home/home.component';
 import { CampsComponent } from './components/camps/camps.component';
 import { CampComponent } from './components/camp/camp.component';
 import { KeysPipe } from './pipes/keys.pipe';
+import { FormTiradaComponent } from './components/new/form-tirada.component';
 
 
 @NgModule({
@@ -34,12 +36,14 @@ import { KeysPipe } from './pipes/keys.pipe';
     HomeComponent,
     CampsComponent,
     CampComponent,
-    KeysPipe
+    KeysPipe,
+    FormTiradaComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule
   ],
   providers: [
     CampsService,

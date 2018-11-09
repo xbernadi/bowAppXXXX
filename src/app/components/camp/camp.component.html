@@ -1,6 +1,3 @@
-<h1>
-    </h1>
-<hr>
 <div class="row" *ngFor="let k of camps | keys; let i = index">
     <div class="col-md-4">
         <!-- <img class="card-img-top" src="{{ camp.img }}" alt="{{ camp.nom }}"> -->
@@ -14,7 +11,7 @@
         <p class="card-text">{{ camps[k].localitat }}</p>
         <p class="card-text"><a href="{{ camps[k].url }}" target="_blank">{{ camps[k].url }}</a></p>
 
-        <p class="card-text">Temperatura actual: {{ temperatura }}</p>
+        <!-- <p class="card-text" *ngFor="let t of temperatura | keys">Temperatura actual: {{ temperatura[t] }}</p> -->
     </div>
 
 </div>

@@ -7,6 +7,7 @@ import { map } from 'rxjs/operators';
 export class CampsService {
 
     CampsURL = 'https://elmultiusos.net/json/demo_camps.php';
+    xURL: string;
 
     constructor( private http: HttpClient ) { }
 
@@ -19,14 +20,14 @@ export class CampsService {
     }
 
     getCamps ( id?: number) {
+      this.xURL = this.CampsURL;
 
       if ( id > 0 ) {
-        let xurl = `${this.CampsURL}?id=${id}`;
+        this.xURL = `${this.CampsURL}?id=${id}`;
       } else {
-        let xurl = this.CampsURL;
+        this.xURL = this.CampsURL;
       }
-
-      return this.http.get ( xurl ).pipe(
+      return this.http.get ( this.xURL ).pipe(
         map( res => {
           return res;
         })

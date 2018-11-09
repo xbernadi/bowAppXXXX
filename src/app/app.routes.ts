@@ -7,9 +7,10 @@ import { HistorialComponent } from './components/historial/historial.component';
 import { HomeComponent } from './components/home/home.component';
 import { NewComponent } from './components/new/new.component';
 import { PerfilComponent } from './components/perfil/perfil.component';
+import { FormTiradaComponent } from './components/new/form-tirada.component';
 
-//Auth0
-import { AuthGuardService } from "./services/auth-guard.service";
+// Auth0
+import { AuthGuardService } from './services/auth-guard.service';
 
 
 const APP_ROUTES: Routes = [
@@ -18,6 +19,7 @@ const APP_ROUTES: Routes = [
     { path: 'camp/:id', component: CampComponent },
     { path: 'camps', component: CampsComponent },
     { path: 'new', component: NewComponent },
+    { path: 'formTirada', component: FormTiradaComponent },
     { 
         path: 'historial', 
         component: HistorialComponent,

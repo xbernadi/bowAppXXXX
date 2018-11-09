@@ -10,20 +10,17 @@ import { Router } from '@angular/router';
 })
 export class CampsComponent implements OnInit {
 
-  camps: any[] = [];
-
+  camps: any;
 
   constructor(  private _campsService: CampsService,
                 private router: Router ) { }
 
   ngOnInit() {
-    // this.camps = this._campsService.getCamps();
 
     this._campsService.getCamps()
       .subscribe( data => {
-        console.log(data);
         this.camps = data;
-      });
+      }, error => console.log(error));
   }
 
   veureCamp ( idx: number ) {
