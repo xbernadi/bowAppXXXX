@@ -15,6 +15,7 @@ export class FormTiradaComponent implements OnInit {
   };
 
   puntsTotals = 0;
+  tirPerfecte = "";
 
   constructor(  private _campsService: CampsService,
     private router: Router,
@@ -26,6 +27,14 @@ export class FormTiradaComponent implements OnInit {
   guardar (forma: NgForm) {
     //console.log (this.diana.fletxa1);
     this.puntsTotals = Number(this.diana.fletxa1) + Number(this.diana.fletxa2);
+
+    // Miro si ha fet un PLE, tir perfecte
+    if (Number(this.diana.fletxa1) >= 10 && Number(this.diana.fletxa2)>= 10 ) {
+      this.tirPerfecte = "Tir perfecte, felicitats";
+    } else {
+      this.tirPerfecte = "";
+    }
+
    
   }
 

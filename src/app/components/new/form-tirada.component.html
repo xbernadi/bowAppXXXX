@@ -1,5 +1,6 @@
 <div class="jumbotron animated fadeIn fast text-center">
     <h1>{{ puntsTotals }} punts</h1>
+    <small>{{ tirPerfecte }}</small>
 </div>
 
 <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
@@ -71,7 +72,7 @@
 
 
 
-    <div class="form-group row">
+    <div class="form-group row ">
         <label class="col-2 col-form-label">&nbsp;</label>
         <div class="input-group col-md-8">
             <button type="submit" class="btn btn-outline-primary">
