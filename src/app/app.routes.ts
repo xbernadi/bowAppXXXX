@@ -19,7 +19,7 @@ const APP_ROUTES: Routes = [
     { path: 'camp/:id', component: CampComponent },
     { path: 'camps', component: CampsComponent },
     { path: 'new', component: NewComponent },
-    { path: 'formTirada', component: FormTiradaComponent },
+    { path: 'formTirada/:id', component: FormTiradaComponent },
     { 
         path: 'historial', 
         component: HistorialComponent,

@@ -1,40 +1,82 @@
-<div class="jumbotron animated fadeIn fast">
-    <h1>245 punts</h1>
+<div class="jumbotron animated fadeIn fast text-center">
+    <h1>{{ puntsTotals }} punts</h1>
 </div>
 
+<form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">
 
-<div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups" >
-  <div class="btn-group mr-3"  >
-    <button type="button" class=" btn-success boto-rodo">11</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class=" btn-primary boto-rodo">10</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class=" btn-info boto-rodo">8</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class=" btn-warning boto-rodo">5</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class=" btn-danger boto-rodo">0</button>
-  </div>
-</div>
-<hr>
-<div class="btn-toolbar " role="toolbar" aria-label="Toolbar with button groups">
-  <div class="btn-group mr-4"  >
-    <button type="button" class="btn btn-success">11</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class="btn btn-primary">10</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class="btn btn-info">8</button>
-  </div>
-  <div class="btn-group mr-3"  >
-    <button type="button" class="btn btn-warning">5</button>
-  </div>
-  <div class="btn-group mr-4"  >
-    <button type="button" class="btn btn-danger">0</button>
-  </div>
-</div>
+    <div class="well well-sm text-left">
+
+        <h3>Fletxa 1</h3>
+
+        <label class="btn btn-success mr-4">
+        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="11">
+        <span class="glyphicon glyphicon-ok">11</span>
+        </label>
+
+        <label class="btn btn-primary mr-2">
+        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="10">
+        <span class="glyphicon glyphicon-ok">10</span>
+        </label>
+
+        <label class="btn btn-info mr-2">
+        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="8">
+        <span class="glyphicon glyphicon-ok">8</span>
+        </label>
+
+        <label class="btn btn-warning mr-3">
+        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="5">
+        <span class="glyphicon glyphicon-ok">5</span>
+        </label>
+
+        <label class="btn btn-danger mr-3">
+        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="0">
+        <span class="glyphicon glyphicon-ok">0</span>
+        </label>
+
+    </div>
+
+    <hr>
+    <div class="well well-sm text-left">
+
+        <h3>Fletxa 2</h3>
+
+        <label class="btn btn-success mr-4">
+        <input type="radio" name="fletxa2" id="fletxa2" [(ngModel)]="diana.fletxa2" value="11">
+        <span class="glyphicon glyphicon-ok">11</span>
+        </label>
+
+        <label class="btn btn-primary mr-2">
+        <input type="radio" name="fletxa2" id="fletxa2" [(ngModel)]="diana.fletxa2" value="10">
+        <span class="glyphicon glyphicon-ok">10</span>
+        </label>
+
+        <label class="btn btn-info mr-2">
+        <input type="radio" name="fletxa2" id="fletxa2" [(ngModel)]="diana.fletxa2" value="8">
+        <span class="glyphicon glyphicon-ok">8</span>
+        </label>
+
+        <label class="btn btn-warning mr-3">
+        <input type="radio" name="fletxa2" id="fletxa2" [(ngModel)]="diana.fletxa2" value="5">
+        <span class="glyphicon glyphicon-ok">5</span>
+        </label>
+
+        <label class="btn btn-danger mr-3">
+        <input type="radio" name="fletxa2" id="fletxa2" [(ngModel)]="diana.fletxa2" value="0">
+        <span class="glyphicon glyphicon-ok">0</span>
+        </label>
+
+    </div>
+
+
+
+
+
+    <div class="form-group row">
+        <label class="col-2 col-form-label">&nbsp;</label>
+        <div class="input-group col-md-8">
+            <button type="submit" class="btn btn-outline-primary">
+        Propera diana
+      </button>
+        </div>
+    </div>
+</form>
