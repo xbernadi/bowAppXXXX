@@ -15,7 +15,7 @@ export class NewComponent implements OnInit {
   };
 
   camps: any;
-  idTirada: number;
+
 
   constructor(  private _campsService: CampsService,
                 private router: Router,
@@ -32,9 +32,14 @@ export class NewComponent implements OnInit {
     console.log (forma);
     console.log (this.tirada);
     // Grabar a la BBDD les dades de la tirada i agafem l'ID
-    this.idTirada = 1;
+    localStorage.clear();
+    localStorage.setItem ("idTirada", '1');
+    localStorage.setItem ("totalDianes", '24');
+    localStorage.setItem ("dianaActual", '1');
+    localStorage.setItem ("puntsTotals", '0');
+    localStorage.setItem ("plensTotals", '0');
 
     // Redirigir a la següent pagina
-    this.router.navigate(['/formTirada', this.idTirada]);
+    this.router.navigate(['/fiTirada']);
   }
 }

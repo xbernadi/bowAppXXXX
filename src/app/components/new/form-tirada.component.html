@@ -1,6 +1,8 @@
 <div class="jumbotron animated fadeIn fast text-center">
-    <h1>{{ puntsTotals }} punts</h1>
+    <h1>{{ punts }} punts</h1>
     <small>{{ tirPerfecte }}</small>
+    <p>Diana {{ dianaActual }} de {{ totalDianes }}</p>
+    <p>{{ mitjanaPunts }} punts de mitjana per diana</p>
 </div>
 
 <form (ngSubmit)="guardar(forma)" #forma="ngForm" novalidate="">

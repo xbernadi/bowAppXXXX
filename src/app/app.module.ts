@@ -23,6 +23,7 @@ import { CampsComponent } from './components/camps/camps.component';
 import { CampComponent } from './components/camp/camp.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { FormTiradaComponent } from './components/new/form-tirada.component';
+import { FiTiradaComponent } from './components/new/fi-tirada.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { FormTiradaComponent } from './components/new/form-tirada.component';
     CampsComponent,
     CampComponent,
     KeysPipe,
-    FormTiradaComponent
+    FormTiradaComponent,
+    FiTiradaComponent
   ],
   imports: [
     BrowserModule,
