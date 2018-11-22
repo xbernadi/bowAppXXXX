@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CampsService } from '../../services/camps.services';
+import { Camp } from '../../interfaces/camp.interface';
 
 @Component({
   selector: 'app-new',
@@ -29,17 +30,27 @@ export class NewComponent implements OnInit {
   }
 
   guardar (forma: NgForm) {
-    console.log (forma);
-    console.log (this.tirada);
+    // console.log (forma);
+    // console.log (this.tirada['camp']);
     // Grabar a la BBDD les dades de la tirada i agafem l'ID
+
+    // Guardem dades d'usuari
+    const UsrNick = localStorage.getItem ('profileNick');
+    const UsrId = localStorage.getItem ('profileId');
+
     localStorage.clear();
-    localStorage.setItem ("idTirada", '1');
-    localStorage.setItem ("totalDianes", '24');
-    localStorage.setItem ("dianaActual", '1');
-    localStorage.setItem ("puntsTotals", '0');
-    localStorage.setItem ("plensTotals", '0');
+
+    // Recupero i guardo dades usuari
+    localStorage.setItem ('profileNick', UsrNick);
+    localStorage.setItem ('profileId', UsrId);
+    // Gurda dades partida
+    localStorage.setItem ('camp', this.tirada['camp']);
+    localStorage.setItem ('totalDianes', '24');
+    localStorage.setItem ('dianaActual', '1');
+    localStorage.setItem ('puntsTotals', '0');
+    localStorage.setItem ('plensTotals', '0');
 
     // Redirigir a la següent pagina
-    this.router.navigate(['/fiTirada']);
+    this.router.navigate(['/formTirada']);
   }
 }

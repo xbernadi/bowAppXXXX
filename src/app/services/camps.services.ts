@@ -11,14 +11,6 @@ export class CampsService {
 
     constructor( private http: HttpClient ) { }
 
-    getCampsZS () {
-      return this.http.get ( this.CampsURL ).pipe(
-        map( res => {
-          return res;
-        })
-       );
-    }
-
     getCamps ( id?: number) {
       this.xURL = this.CampsURL;
 

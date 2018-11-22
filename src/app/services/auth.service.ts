@@ -10,7 +10,7 @@ import * as auth0 from 'auth0-js';
 @Injectable()
 export class AuthService {
 
-  public userProfile:any;
+  public userProfile: any;
 
   auth0 = new auth0.WebAuth({
     clientID: 'ouAhhrwEWyX5uvVE5yjFq1WsGCOYvRkf',
@@ -32,7 +32,7 @@ export class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/perfil']);
       } else if (err) {
         this.router.navigate(['/home']);
         console.log(err);

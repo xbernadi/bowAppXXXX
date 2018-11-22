@@ -8,6 +8,7 @@ import {APP_ROUTING} from './app.routes';
 
 // Serveis
 import { CampsService } from './services/camps.services';
+import { SqlService } from './services/sql.service';
 import { AuthService } from './services/auth.service';
 import { AuthGuardService } from './services/auth-guard.service';
 
@@ -49,6 +50,7 @@ import { FiTiradaComponent } from './components/new/fi-tirada.component';
   ],
   providers: [
     CampsService,
+    SqlService,
     AuthService,
     AuthGuardService
   ],
