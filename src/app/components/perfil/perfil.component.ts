@@ -19,12 +19,14 @@ export class PerfilComponent implements OnInit {
     // si existeix, carrega les seves dades
     if (this.auth.userProfile) {
       this.profile = this.auth.userProfile;
+      console.log ( 'Existeix el perfil a la AUTH' );
     } else {
       this.auth.getProfile((err, profile) => {
+        console.log ( 'NO existeix el perfil a la AUTH' );
         this.profile = profile;
         // console.log (this.profile);
 
-        localStorage.setItem('profileId', this.profile['sub']);
+        // localStorage.setItem('profileId', this.profile['sub']);
         localStorage.setItem('profileNick', this.profile['nickname']);
         localStorage.setItem('profileSub', this.profile['sub']);
 
@@ -34,6 +36,7 @@ export class PerfilComponent implements OnInit {
             console.log ( dataX );
             const keys = Object.keys(dataX);
              if ( keys.length === 0 ) {
+              console.log ( ' NO Existeix el perfil a la BBDD' );
               console.log ('Guardar');
 
               // Sino existeix a Firebase insertar nou perfil
@@ -52,8 +55,13 @@ export class PerfilComponent implements OnInit {
               this._sqlService.nouUsuari ( arxJson )
                 .subscribe ( data => {
                 console.log ( data );
+                 localStorage.setItem('profileId', data['name']);
               });
 
+             } else {
+              console.log ( ' Existeix el perfil a la BBDD' );
+              console.log (keys[0]);
+              localStorage.setItem('profileId', keys[0]);
              }
 
         }, error => console.log(error));

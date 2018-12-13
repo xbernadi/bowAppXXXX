@@ -28,7 +28,7 @@ export class FiTiradaComponent implements OnInit {
     const arxJson = {
       'data' : avui,
       'hora' : hora,
-      'usuari' : localStorage.getItem('profileNick'),
+      'usuari' : localStorage.getItem('profileId'),
       'camp' : localStorage.getItem('camp'),
       'punts' : this.punts,
       puntuacions: []
