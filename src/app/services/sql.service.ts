@@ -27,6 +27,15 @@ export class SqlService {
     );
   }
 
+    consultaTiradesUsuari ( nick ) {
+    const xUrl = 'https://bow3d-110901.firebaseio.com/tirada.json?orderBy="usuari"&equalTo="' + nick + '"';
+    return this.http.get ( xUrl ).pipe(
+      map( res => {
+        return res;
+       })
+    );
+  }
+
   // Perfil usuari
   consultaPerfil ( nick ) {
     const xUrl = 'https://bow3d-110901.firebaseio.com/usuaris.json?orderBy="nick"&equalTo="' + nick + '"';

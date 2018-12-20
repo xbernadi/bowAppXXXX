@@ -16,8 +16,8 @@ export class AuthService {
     clientID: 'ouAhhrwEWyX5uvVE5yjFq1WsGCOYvRkf',
     domain: 'xbernadi.eu.auth0.com',
     responseType: 'token id_token',
-    // redirectUri: 'http://localhost:4200/callback',
-    redirectUri: 'http://elmultiusos.net/bow3d/#/perfil',
+     redirectUri: 'http://localhost:4200/callback',
+    // redirectUri: 'http://elmultiusos.net/bow3d/#/perfil',
     scope: 'openid profile'
   });
 
