@@ -48,7 +48,7 @@ export class FiTiradaComponent implements OnInit {
     }
 
     // Grabar a la BBDD
-    this._sqlService.novaTirada ( arxJson )
+    this._sqlService.novaTiradaSQL ( arxJson )
       .subscribe ( data => {
         console.log ( data );
     });

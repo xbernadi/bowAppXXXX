@@ -10,6 +10,8 @@ import { Tirada } from '../interfaces/tirada.interface';
 export class SqlService {
 
   URL = 'https://bow3d-110901.firebaseio.com/tirada.json';
+  URL2 = 'http://elmultiusos.net/json/save_tirada.php';
+  xURL: string;
 
   constructor(private http: HttpClient) { }
 
@@ -23,6 +25,25 @@ export class SqlService {
     return this.http.post(this.URL, body, { headers } ).pipe(
       map( res => {
         return res;
+       })
+    );
+  }
+
+  novaTiradaSQL ( tirada ) {
+    const body = JSON.stringify(tirada);
+    console.log (tirada);
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json'
+    });
+  
+    const id = 2;
+    this.xURL = `${this.URL2}?id=${id}&json=${body}`;
+    console.log (this.xURL );
+    return this.http.post(this.xURL, body, { headers } ).pipe(
+      map( res => {
+        console.log (res);
+        return res;
+
        })
     );
   }
