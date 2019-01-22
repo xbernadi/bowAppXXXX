@@ -32,18 +32,17 @@ export class NewComponent implements OnInit {
   guardar (forma: NgForm) {
     // console.log (forma);
     // console.log (this.tirada['camp']);
-    // Grabar a la BBDD les dades de la tirada i agafem l'ID
 
     // Guardem dades d'usuari
-    const UsrNick = localStorage.getItem ('profileNick');
-    const UsrId = localStorage.getItem ('profileId');
+    // const UsrNick = localStorage.getItem ('profileNick');
+    // const UsrId = localStorage.getItem ('profileId');
 
-    localStorage.clear();
+    //localStorage.clear();
 
     // Recupero i guardo dades usuari
-    localStorage.setItem ('profileNick', UsrNick);
-    localStorage.setItem ('profileId', UsrId);
-    // Gurda dades partida
+    // localStorage.setItem ('profileNick', UsrNick);
+    // localStorage.setItem ('profileId', UsrId);
+    // Guarda dades partida
     localStorage.setItem ('camp', this.tirada['camp']);
     localStorage.setItem ('totalDianes', '24');
     localStorage.setItem ('dianaActual', '1');

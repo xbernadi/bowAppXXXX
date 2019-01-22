@@ -10,6 +10,11 @@ import { Tirada } from '../../interfaces/tirada.interface';
 export class FiTiradaComponent implements OnInit {
 
   punts = localStorage.getItem('puntsTotals');
+  totalDianes = localStorage.getItem('totalDianes');
+  plensTotals = localStorage.getItem('plensTotals');
+  mitjanaPunts = parseFloat(this.punts) / parseFloat(this.totalDianes);
+
+  text = "Hola";
 
   ngOnInit(): void {
   }
@@ -31,6 +36,7 @@ export class FiTiradaComponent implements OnInit {
       'usuari' : localStorage.getItem('profileId'),
       'camp' : localStorage.getItem('camp'),
       'punts' : this.punts,
+      'plens' : localStorage.getItem('plensTotals'),
       puntuacions: []
     };
 
@@ -46,11 +52,14 @@ export class FiTiradaComponent implements OnInit {
         'fletxa_2' : localStorage.getItem(nomVarF2)
       });
     }
+     
 
     // Grabar a la BBDD
     this._sqlService.novaTiradaSQL ( arxJson )
       .subscribe ( data => {
-        console.log ( data );
+        // console.log ( data["status"] );
+        if ( data["status"] == 1) this.text = "Dades guardades correctament al teu historial";
+        else this.text = "NO hem pogit guardar les dades correctament al historial";
     });
   }
 }

@@ -1,4 +1,4 @@
-<div class="jumbotron animated fadeIn fast text-center">
+<div class="jumbotron animated fadeIn slow text-center">
     <h1>{{ punts }} punts</h1>
     <small>{{ tirPerfecte }}</small>
     <p>Diana {{ dianaActual }} de {{ totalDianes }}</p>
@@ -12,7 +12,11 @@
         <h3>Fletxa 1</h3>
 
         <label class="btn btn-success mr-4">
-        <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="11">
+        <input  type="radio" 
+                name="fletxa1" 
+                id="fletxa1" 
+                [(ngModel)]="diana.fletxa1"
+                value="11">
         <span class="glyphicon glyphicon-ok">11</span>
         </label>
 
@@ -35,6 +39,7 @@
         <input type="radio" name="fletxa1" id="fletxa1" [(ngModel)]="diana.fletxa1" value="0">
         <span class="glyphicon glyphicon-ok">0</span>
         </label>
+
 
     </div>
 

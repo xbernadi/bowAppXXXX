@@ -31,37 +31,26 @@ export class PerfilComponent implements OnInit {
         localStorage.setItem('profileSub', this.profile['sub']);
 
         // Consulta si existeix el perfil a la BBDD de Firebase
-        this._sqlService.consultaPerfil ( this.profile['nickname'] )
+        this._sqlService.consultaPerfil ( this.profile['nickname'], this.profile['sub'] )
           .subscribe( dataX => {
-            console.log ( dataX );
-            const keys = Object.keys(dataX);
-             if ( keys.length === 0 ) {
-              console.log ( ' NO Existeix el perfil a la BBDD' );
-              console.log ('Guardar');
+    
+             if ( dataX["result"] == 0 ) {
+              console.log ( ' NO Existeix el perfil a la BBDD. Guardar' );
 
-              // Sino existeix a Firebase insertar nou perfil
-              const today = new Date();
-              const dd = today.getDate();
-              const mm = today.getMonth() + 1;
-              const yyyy = today.getFullYear();
-              const avui = dd + '/' + mm + '/' + yyyy;
-
+              // Sino existeix a BBDD insertar nou perfil
               const arxJson = {
                 'nick' : this.profile['nickname'],
-                'data' : avui,
                 'sub'  : this.profile['sub']
               };
 
               this._sqlService.nouUsuari ( arxJson )
                 .subscribe ( data => {
-                console.log ( data );
-                 localStorage.setItem('profileId', data['name']);
+                 localStorage.setItem('profileId', data['idUser']);
               });
 
              } else {
-              console.log ( ' Existeix el perfil a la BBDD' );
-              console.log (keys[0]);
-              localStorage.setItem('profileId', keys[0]);
+              console.log ( ' Existeix el perfil a la BBDD. ID:' + dataX["idUser"] );
+              localStorage.setItem('profileId', dataX["idUser"]);
              }
 
         }, error => console.log(error));

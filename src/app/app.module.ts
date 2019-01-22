@@ -25,6 +25,8 @@ import { CampComponent } from './components/camp/camp.component';
 import { KeysPipe } from './pipes/keys.pipe';
 import { FormTiradaComponent } from './components/new/form-tirada.component';
 import { FiTiradaComponent } from './components/new/fi-tirada.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -46,7 +48,8 @@ import { FiTiradaComponent } from './components/new/fi-tirada.component';
     BrowserModule,
     HttpClientModule,
     APP_ROUTING,
-    FormsModule
+    FormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [
     CampsService,

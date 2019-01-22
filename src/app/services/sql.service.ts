@@ -9,26 +9,9 @@ import { Tirada } from '../interfaces/tirada.interface';
 })
 export class SqlService {
 
-  URL = 'https://bow3d-110901.firebaseio.com/tirada.json';
-  URL2 = 'http://elmultiusos.net/json/save_tirada.php';
-  xURL: string;
-
   constructor(private http: HttpClient) { }
 
   // Tirada
-  novaTirada ( tirada ) {
-    const body = JSON.stringify(tirada);
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    return this.http.post(this.URL, body, { headers } ).pipe(
-      map( res => {
-        return res;
-       })
-    );
-  }
-
   novaTiradaSQL ( tirada ) {
     const body = JSON.stringify(tirada);
     console.log (tirada);
@@ -36,10 +19,8 @@ export class SqlService {
       'Content-Type': 'application/json'
     });
   
-    const id = 2;
-    this.xURL = `${this.URL2}?id=${id}&json=${body}`;
-    console.log (this.xURL );
-    return this.http.post(this.xURL, body, { headers } ).pipe(
+    const xURL = `https://elmultiusos.net/json/save_tirada.php?json=${body}`;
+    return this.http.post(xURL, body, { headers } ).pipe(
       map( res => {
         console.log (res);
         return res;
@@ -49,7 +30,8 @@ export class SqlService {
   }
 
     consultaTiradesUsuari ( nick ) {
-    const xUrl = 'https://bow3d-110901.firebaseio.com/tirada.json?orderBy="usuari"&equalTo="' + nick + '"';
+      console.log ( nick );
+    const xUrl = 'https://elmultiusos.net/json/list_tirada.php?idUser="' + nick + '"';
     return this.http.get ( xUrl ).pipe(
       map( res => {
         return res;
@@ -58,8 +40,9 @@ export class SqlService {
   }
 
   // Perfil usuari
-  consultaPerfil ( nick ) {
-    const xUrl = 'https://bow3d-110901.firebaseio.com/usuaris.json?orderBy="nick"&equalTo="' + nick + '"';
+  consultaPerfil ( nick, sub ) {
+    const xUrl = 'https://elmultiusos.net/json/usuaris.php?BuscarNick=1&UserNick=' + nick + '&auth=' + sub;
+    console.log (xUrl);
     return this.http.get ( xUrl ).pipe(
       map( res => {
         return res;
@@ -68,12 +51,12 @@ export class SqlService {
   }
 
   nouUsuari ( usuari ) {
-    const xUrl = 'https://bow3d-110901.firebaseio.com/usuaris.json';
     const body = JSON.stringify(usuari);
     const headers = new HttpHeaders({
       'Content-Type': 'application/json'
     });
 
+    const xUrl = `https://elmultiusos.net/json/usuaris.php?crear=1&json=${body}`;
     return this.http.post( xUrl, body, { headers } ).pipe(
       map( res => {
         return res;
